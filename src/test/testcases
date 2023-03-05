@@ -1,0 +1,44 @@
+TC1_LoginWithValidCredentials
+1. Open URL
+2. Click Login button
+3. Input the valid login into the ‘Login’ field
+4. Input the valid password into the ‘Password’ field
+5. Click the ‘Login’ button
+6. Verify that user is successfully logged in
+
+
+TC2_TopUpMobilePhoneInvalidCard
+1. Login to Portmone
+2. Open the ‘Top up Mobile’ screen
+3.  Input valid mobile number
+4. Input the sum
+5. Click the ‘Next’ button
+6. Input invalid card number
+7. Input valid valid expiration date and cvv
+8. Click the top up button
+9. Verify that the error message is displayed
+
+
+TC3_AddNewAddressToProfile
+1. Login to Portmone
+2. Open ‘My cabinet’ screen
+3. Click ‘Add new address’ button
+4. Input the title
+5. Select the region
+6. Select the city
+7. Select the building
+8. Select the appt
+9. Click the ‘Create’ button
+10. Verify that the new address is added
+
+
+TC4_LinkToRecievePaymantCreate
+1. Login to Portmone
+2. Open the ‘Transfers’ screen
+3. Open the ‘Create Link’ screen
+4. Fulfil the form
+5. Click the ‘Create’ button
+6. Verify that the link gets created
+
+
+TC5_
