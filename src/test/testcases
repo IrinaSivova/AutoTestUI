@@ -41,4 +41,11 @@ TC4_LinkToRecievePaymantCreate
 6. Verify that the link gets created
 
 
-TC5_
+TC5_AddNewBillWithoutLinkageToAddress
+1. Login to Portmone
+2. Go to 'Каталог послуг'
+3. Select 'Черкаси і Черкаська область'
+4. Select "Черкаська ТЕЦ, ПРАТ "Черкаське Хімволокно"
+5. Enter "40453081"
+6. Click 'Зберегти як шаблон'
+7. Verify that bill is created and shown in Dashboard

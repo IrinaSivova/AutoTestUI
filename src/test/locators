@@ -1,0 +1,42 @@
+Header
+1. Login button xpath = .//button[@aria-label = 'login']
+2. Catalog = .//a[@id = 'Header_3']
+3.
+
+Login form
+1. Login input field =.//input[@id = 'form-login__input-login']
+2. Password input field = .//input[@id = 'form-login__input-password']
+3. Login button = .//button[@id = 'form-login__button-submit']
+
+Dashboard
+1. Add New Address button =.//span[text() = 'Нова адреса']
+2. Address name  = .//input[@id = 'asf_0']
+3. Region = .//input[@id = 'asf_1']
+4. City = .//input[@id = 'asf_2']
+5. Street = .//input[@id = 'asf_3']
+6. Building = .//input[@id = 'asf_4']
+7. Appt = .//input[@id = 'asf_5']
+8. Add button = .//button[@type= 'submit']
+9. Address title =  .//span[@class='subtitle-2 mb-0 title-ellipsis']
+
+
+Home page
+1. Phone number input field = .//input[@type = 'tel']
+2. Amount = .//input[@type = 'number']
+3. Поповнити button = .//button[@type = 'submit']
+
+
+Top up telephone page
+1. CC number = .//input[@name = 'ccnumber']
+2. Expired date = .//input[@name = 'expdate']
+3. CVV2 = .//input[@name = 'cvv2']
+4. Поповнити button = .//button[@type = 'submit']
+5. Error message = .//div[@role = 'alert']  ( Неправильний номер картки. )
+
+
+
+
+
+
+
+
