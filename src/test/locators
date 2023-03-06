@@ -1,7 +1,7 @@
 Header
 1. Login button xpath = .//button[@aria-label = 'login']
 2. Catalog = .//a[@id = 'Header_3']
-3.
+3. Transfers = .//a[@id = 'Header_2']
 
 Login form
 1. Login input field =.//input[@id = 'form-login__input-login']
@@ -32,6 +32,11 @@ Top up telephone page
 3. CVV2 = .//input[@name = 'cvv2']
 4. Поповнити button = .//button[@type = 'submit']
 5. Error message = .//div[@role = 'alert']  ( Неправильний номер картки. )
+
+
+Make transfer page
+1. Create Transfer tab = .//a[contains(text(), 'Отримати на картку')]
+2.
 
 
 
