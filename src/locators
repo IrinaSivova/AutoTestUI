@@ -41,7 +41,7 @@ Make transfer page
 
 Catalog Page
 1. Region = .//span[text()='Оберіть регіон']
-2. Company =
+
 
 
 
