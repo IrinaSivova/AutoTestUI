@@ -16,6 +16,8 @@ public class LoginWithValidCredentials extends BaseTest {
                 .openLoginForm()
                 .enterLoginIntoInputLogin(TestData.VALID_lOGIN)
                 .enterPasswordIntoPassword(TestData.VALID_PASSWORD)
-                .clickLoginButton();
+                .clickLoginButton()
+                .checkRedirectToDashboard()
+        ;
     }
 }

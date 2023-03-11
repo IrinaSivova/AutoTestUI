@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -18,7 +19,6 @@ import java.time.Duration;
 
 public class BaseTest {
 
-
     protected WebDriver webdriver;
     Logger logger = Logger.getLogger(getClass());
     protected HomePage homePage;
@@ -26,12 +26,12 @@ public class BaseTest {
     @Before
     public void setUp(){
         logger.info("------ " + testName.getMethodName()+ " was started -------");
-        WebDriverManager.chromedriver().setup();
         webdriver = initDriver();
         webdriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        webdriver.manage().window().maximize();
         homePage = new HomePage(webdriver);
-    }
 
+    }
 
     @After
     public void tearDown(){
@@ -47,8 +47,10 @@ public class BaseTest {
     private WebDriver initDriver(){
         String browser = System.getProperty("browser");
         if ((browser == null) || "chrome".equalsIgnoreCase(browser)){
+            ChromeOptions ops = new ChromeOptions();
+            ops.addArguments("--remote-allow-origins=*");
             WebDriverManager.chromedriver().setup();
-            webdriver = new ChromeDriver();
+            webdriver = new ChromeDriver(ops);
         } else if ("firefox".equalsIgnoreCase(browser)) {
             WebDriverManager.firefoxdriver().setup();
             webdriver = new FirefoxDriver();

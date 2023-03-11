@@ -4,10 +4,12 @@ import libs.ConfigProperties;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -49,6 +51,15 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void clickElement (String xpath) {
+        try {
+            clickElement(webDriver.findElement(By.xpath(xpath)));
+
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
     protected boolean isElementDisplayed (WebElement webElement){
         try {
             boolean state = webElement.isDisplayed();
@@ -64,7 +75,16 @@ public class CommonActionsWithElements {
             logger.info("Element is not displayed");
             return false;
         }
+    }
 
+    protected void selectValueInDropdown (WebElement dropDown, String value){
+        try {
+            Select select = new Select(dropDown);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DropDown");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 
     private String getElementName(WebElement webElement) {

@@ -2,6 +2,7 @@ Header
 1. Login button xpath = .//button[@aria-label = 'login']
 2. Catalog = .//a[@id = 'Header_3']
 3. Transfers = .//a[@id = 'Header_2']
+4.
 
 Login form
 1. Login input field =.//input[@id = 'form-login__input-login']
@@ -38,6 +39,9 @@ Make transfer page
 1. Create Transfer tab = .//a[contains(text(), 'Отримати на картку')]
 2.
 
+Catalog Page
+1. Region = .//span[text()='Оберіть регіон']
+2. Company =
 
 
 
