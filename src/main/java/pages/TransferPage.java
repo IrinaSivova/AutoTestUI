@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +40,7 @@ public class TransferPage extends ParentPage{
 
 
     public TransferPage checkAmountReset() {
-        Assert.assertEquals("Amount is not reset", "25000", inputAmount.getText());
+        Assert.assertEquals("Amount is not reset", "25000", inputAmount.getShadowRoot().findElement(By.xpath("//div")).getText());
         return this;
     }
 }

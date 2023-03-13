@@ -5,8 +5,10 @@ import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -60,6 +62,12 @@ public class CommonActionsWithElements {
         }
     }
 
+    protected void scroll(WebElement webElement){
+        new Actions(webDriver).moveToElement(webElement).perform();
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("javascript:window.scrollBy(250,350)");
+    }
+
     protected boolean isElementDisplayed (WebElement webElement){
         try {
             boolean state = webElement.isDisplayed();
@@ -98,9 +106,5 @@ public class CommonActionsWithElements {
         logger.error("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
     }
-
-
-
-
 
 }

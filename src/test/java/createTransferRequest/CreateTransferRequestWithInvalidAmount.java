@@ -17,7 +17,7 @@ public class CreateTransferRequestWithInvalidAmount extends BaseTest {
                 .openTransferTab()
                 .inputInvalidAmount("30000")
                 .checkErrorMessageDisplayed("ви вказали суму вище 25000 грн")
-          //      .checkAmountReset()
+            //   .checkAmountReset()
                 ;
 
     }

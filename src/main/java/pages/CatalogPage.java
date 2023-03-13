@@ -26,6 +26,11 @@ public class CatalogPage extends ParentPage{
     }
 
     public ComunalPage openComunalPage () {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         clickElement(itemComService);
         return new ComunalPage(webDriver);
     }

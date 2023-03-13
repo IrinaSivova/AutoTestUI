@@ -40,7 +40,9 @@ Make transfer page
 2.
 
 Catalog Page
-1. Region = .//span[text()='Оберіть регіон']
+1. Region = .//button[@class = 'src-input-group--select-btn d-none w-100 d-lg-inline-block']
+2. Comunal item //div[@class='card bg-color-white-original p-20']//a[@title='Комунальні послуги']//span[text()='Комунальні послуги']
+
 
 
 

@@ -1,6 +1,7 @@
 package createBillTest;
 
 import baseTest.BaseTest;
+import org.junit.After;
 import org.junit.Test;
 
 public class CreateBillTest extends BaseTest {
@@ -19,9 +20,20 @@ public class CreateBillTest extends BaseTest {
             .checkRedirectToComunalPage()
             .clickCompany ("КП \"Черкасиводоканал\"")
             .checkRedirectToCompanyPage("КП \"Черкасиводоканал\"")
-            .enterAccountNumber("40453081")
+            .enterAccountNumber("7285081")
             .clickCreateBillButton()
             .checkBillIsAddedWithTitle("КП \"Черкасиводоканал\"")
     ;
     }
+
+    @After
+    public void deleteBill () {
+        homePage
+                .openHomePage()
+                .getHeaderElement().clickMyCabinetButton()
+                .deleteBills("КП \"Черкасиводоканал\"")
+                ;
+    }
+
+
 }

@@ -25,10 +25,14 @@ public class Dashboard extends ParentPage{
     @FindBy (xpath = ".//span[text()='Видалити адресу']") private WebElement buttonDelete;
     @FindBy (xpath = ".//button[@class='btn btn-primary w-100']") private WebElement buttonConfirmDelete;
     @FindBy (xpath = ".//div[@class='toast__list']") private WebElement successDeleteAddressMessage;
+    @FindBy (xpath = "//div[@id='table-bills-id']//button[@class='list-item__actions-toggle c-pointer']") private WebElement buttonActionBills;
+    @FindBy (xpath = "//span[text()='Видалити рахунок']") private WebElement buttonDeleteBill;
+    @FindBy (xpath = "//button[@class='btn btn-primary w-168']") private WebElement buttonConfirmDeleteBill;
 
 
     private String titleAddedAddress = ".//*[text()='%s']";
     private String titleAddedBill = ".//*[text()='%s']" ;
+    private String titleBill = ".//*[text()='%s']";
 
 
     HeaderElements headerElements = new HeaderElements(webDriver);
@@ -72,7 +76,11 @@ public class Dashboard extends ParentPage{
     }
 
     public Dashboard enterAddressStreet(String street){
-
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         enterTextIntoElement(inputStreet, street);
 
         return this;
@@ -134,15 +142,27 @@ public class Dashboard extends ParentPage{
         Assert.assertEquals("Bill is not added", 1, getBillsWithTitle(title).size());
     }
 
-  public Dashboard openDashboard() {
-        HomePage homePage = new HomePage(webDriver);
-        homePage.openHomePage();
-        if(headerElements.isSignInButtonDisplayed()) {
-            homePage.openLoginForm();
-            homePage.fillingLoginFormWithValidCredentials();
-        }
-        checkRedirectToDashboard();
-        return this;
-  }
 
+    public Dashboard deleteBills(String titleOfBill) {
+            List<WebElement> listOfBills = getBillsWithTitle(titleOfBill);
+            int counter = listOfBills.size();
+            while (!listOfBills.isEmpty() && counter>0){
+                scroll(buttonActionBills);
+                clickElement(buttonActionBills);
+                clickElement(buttonDeleteBill);
+                clickElement(buttonConfirmDeleteBill);
+
+                logger.info("Bill was deleted with title "+ titleOfBill);
+                webDriverWait10.until(ExpectedConditions.numberOfElementsToBe(By.xpath(String.format(titleBill, titleOfBill)),counter-1));
+                listOfBills = getAddressesWithTitle(titleOfBill);
+                counter--; // counter = counter - 1
+            }
+            if (listOfBills.size() ==  0) {
+                logger.info("All bills were deleted with title " + titleOfBill);
+            } else {
+                logger.error("Delete fail");
+                Assert.fail("Delete fail");
+            }
+            return this;
+    }
 }
