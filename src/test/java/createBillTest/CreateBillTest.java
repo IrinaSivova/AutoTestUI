@@ -20,7 +20,7 @@ public class CreateBillTest extends BaseTest {
             .checkRedirectToComunalPage()
             .clickCompany ("КП \"Черкасиводоканал\"")
             .checkRedirectToCompanyPage("КП \"Черкасиводоканал\"")
-            .enterAccountNumber("7285081")
+            .enterAccountNumber("11111")
             .clickCreateBillButton()
             .checkBillIsAddedWithTitle("КП \"Черкасиводоканал\"")
     ;

@@ -10,13 +10,13 @@ public class MobileTopUpWithInvalidCC extends BaseTest {
     public void mobileTopUpWithInvalidCC(){
         homePage
                 .openHomePage()
-                .enterPhoneNumberIntoPhoneNumberField("972508293")
+                .enterPhoneNumberIntoPhoneNumberField("2222222")
                 .enterAmount("3")
                 .clickTopUpButton()
                 .checkRedirectToTopUpPage()
                 .enterCCNumber("11111111111")
-                .enterExpireDate("07/26")
-                .enterCVV2("032")
+                .enterExpireDate("22/24")
+                .enterCVV2("000")
                 .clickSubmitTopUpButton()
                 .checkInvalidCCNumberMessageIsDisplayed("Неправильний номер картки.")
         ;
