@@ -14,6 +14,6 @@ target/site
 *.ipr
 *.iws
 .allure
-*/src/main/java/resources/hiddenConfig.properties
+/Users/iryna/SivovaExam/ExamProjectSivova/src/main/java/resources/hiddenConfig.properties
 
 allure-results
